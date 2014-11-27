@@ -3,9 +3,10 @@ module Core
     class LearningCase
       include Core::Parser::UXF
 
+      @initial_state
+
       def initialize path
-        doc = parse path
-        print doc
+        parse path
       end
 
       def match interaction_events

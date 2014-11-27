@@ -1,5 +1,3 @@
-require 'core/parser/uxf'
-require 'core/evaluator/learning_case'
-
-module Core
-end
+require 'core/shapes'
+require 'core/parser'
+require 'core/evaluator'
