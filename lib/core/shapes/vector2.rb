@@ -6,6 +6,10 @@ module Core
         @y = y
       end
 
+      def distance point
+        return Math.sqrt((x-point.x) ** 2 + (y-point.y) ** 2)
+      end
+
       def to_s
         'x: ' + @x.to_s + ' y: ' + @y.to_s
       end

@@ -3,17 +3,26 @@ module Core
     class Rectangle
 
       def initialize position, size
-        @frame = position
+        @position = position
         @size = size
       end
 
       def contains point
-        return false unless ((@frame.x..@frame.x+@size.x).cover? point.x) && ((@frame.y..@frame.y+@size.y).cover? point.y)
+        return false unless ((@position.x..@position.x+@size.x).cover? point.x) && ((@position.y..@position.y+@size.y).cover? point.y)
         true
       end
 
+      def is_in_proximity proximity, point
+        return true if contains point
+        x = [[@position.x, point.x].max, @position.x+@size.x].min
+        y = [[@position.y, point.y].max, @position.x+@size.y].min
+        projection = Vector2.new x, y
+        return true if point.distance(projection) <= proximity
+        false
+      end
+
       def to_s
-        'x: ' + @frame.x.to_s + ' y: ' + @frame.y.to_s + ' width: ' + @size.x.to_s + ' height: ' + @size.y.to_s
+        'x: ' + @position.x.to_s + ' y: ' + @position.y.to_s + ' width: ' + @size.x.to_s + ' height: ' + @size.y.to_s
       end
 
     end
