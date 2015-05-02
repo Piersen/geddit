@@ -1,3 +1,5 @@
+require 'core/preprocessor/interface_object'
+
 module Core
   module Preprocessor
     include Core::Shapes
@@ -50,8 +52,8 @@ module Core
           unless gaze_data_line[27].empty?
             click_point = Vector2.new Integer(gaze_data_line[28]), Integer(gaze_data_line[29])
             clicked_object = nil
-            interface_objects.each do |name, rect|
-              if rect.contains click_point
+            interface_objects.each do |name, obj|
+              if obj.rect.contains click_point
                 clicked_object = name
                 break
               end
@@ -59,7 +61,7 @@ module Core
             if clicked_object.nil?
               output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), 'UNKNOWN', click_point.x.to_s, click_point.y.to_s ] ).join ','
             else
-              output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), clicked_object ] ).join ','
+              output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), clicked_object.rect, clicked_object.params ] ).join ','
             end
           end
 
@@ -77,9 +79,9 @@ module Core
             unless gaze_data_line[52].empty? ||  gaze_data_line[53].empty?
               gaze_point = Vector2.new(Integer(gaze_data_line[52]), Integer(gaze_data_line[53]))
 
-              interface_objects.each do |name, rect|
-                if rect.is_in_proximity(gaze_tolerance, gaze_point) && !current_fixation_seen_objects.include?(name)
-                  output_file.puts ([ 'GAZE', name, gaze_sample_date.strftime(time_format) ] ).join ','
+              interface_objects.each do |name, obj|
+                if obj.rect.is_in_proximity(gaze_tolerance, gaze_point) && !current_fixation_seen_objects.include?(name)
+                  output_file.puts ([ 'GAZE', name, gaze_sample_date.strftime(time_format), obj.params ] ).join ','
                   current_fixation_seen_objects.append name
                 end
               end
@@ -92,9 +94,9 @@ module Core
         if min_time == gui_change_date
           case gui_change_line[0]
             when 'Begin'
-              interface_objects[gui_change_line[1]] = Rectangle.new(Vector2.new(Integer(gui_change_line[2]), Integer(gui_change_line[3])), Vector2.new(Integer(gui_change_line[4]), Integer(gui_change_line[5])))
+              interface_objects[gui_change_line[1]] = InterfaceObject.new(Rectangle.new(Vector2.new(Integer(gui_change_line[2]), Integer(gui_change_line[3])), Vector2.new(Integer(gui_change_line[4]), Integer(gui_change_line[5]))), gui_change_line.drop(7))
             when 'Change'
-              interface_objects[gui_change_line[1]] = Rectangle.new(Vector2.new(Integer(gui_change_line[2]), Integer(gui_change_line[3])), Vector2.new(Integer(gui_change_line[4]), Integer(gui_change_line[5])))
+              interface_objects[gui_change_line[1]].rect = Rectangle.new(Vector2.new(Integer(gui_change_line[2]), Integer(gui_change_line[3])), Vector2.new(Integer(gui_change_line[4]), Integer(gui_change_line[5])))
             when 'End'
               interface_objects.delete gui_change_line[1]
           end
