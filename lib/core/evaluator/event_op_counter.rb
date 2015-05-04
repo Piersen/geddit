@@ -2,12 +2,13 @@ module Core
   module Evaluator
     class EventOpCounter
 
-      def initialize event, additions_before
+      def initialize event, additions = 0
         @event = event
-        @additions_before = additions_before
+        @additions = additions
+        @transpositions = 0
       end
 
-      attr_accessor :event, :additions_before
+      attr_accessor :event, :additions, :transpositions
     end
 
   end

@@ -33,7 +33,7 @@ module Core
         bestpass = nil
 
         # Evaluate each of the possible passes
-        @possible_passes.each do |pass|
+        @possible_passes.each_with_index do |pass, pass_index|
           params = Set.new
 
           # Find all parameters in event prescriptions
@@ -59,11 +59,11 @@ module Core
           # Make a pure list of interesting events, collect all possible parameter values
           addition_count = 0
           events.each do |event|
-            not_yet_added = true
+            was_matched = false
             pass.each do |prescription|
               if event.matches(prescription)
-                pure_list << EventOpCounter.new(event, addition_count) if not_yet_added
-                not_yet_added = false
+                pure_list << EventOpCounter.new(event, addition_count) if !was_matched
+                was_matched = true
                 addition_count = 0
                 event.parameter_dictionary.each do |key, value|
                   if(all_param_dict[key].count == 1 && all_param_dict[key].to_a[0] == nil) # replace the default nil containing set
@@ -72,6 +72,9 @@ module Core
                   all_param_dict[key].add value
                 end
               end
+            end
+            if !was_matched
+              addition_count += 1
             end
           end
 
@@ -117,11 +120,111 @@ module Core
             end
           end
 
-          # For adjusted pure lists, calculate the number of additions and transpositions
+          # Find evaluated path with the least transpositions and additions for all of the best param dictionaries
+          best_param_dicts.each do |param_dict|
+            # A structure for storing all positions of events equal to the prescription
+            position_list = Array.new(pass.count) { Array.new }
+            # A structure for storing fixed paths without transpositions, from which the best one is the chosen
+            fixed_paths = [ GreedyFixedPath.new ]
 
+            pure_list.each_with_index do |event_op_counter, pure_list_index|
+              pass.each_with_index do |prescription, prescription_index|
+                if event_op_counter.event.equals prescription, param_dict
+
+                  # For each path, append if it can be appended, if the append requires a jump over, branch into a new path
+                  new_branches = Array.new
+                  fixed_paths.each do |fixed_path|
+                    branch = fixed_path.append_event_counter_or_branch event_op_counter, prescription_index, pure_list_index
+                    if !branch.nil?
+                      new_branches << branch
+                    end
+                  end
+                  fixed_paths += new_branches
+
+                  position_list[prescription_index] << pure_list_index
+                end
+              end
+            end
+
+            # Select only the fixed paths with the least amount of transpositions
+            best_fixed_paths = []
+            fixed_paths.each do |fixed_path|
+              if !best_fixed_paths.empty? && fixed_path.success_rating > best_fixed_paths.first.success_rating
+                best_fixed_paths = []
+              end
+              if best_fixed_paths.empty? || fixed_path.success_rating == best_fixed_paths.first.success_rating
+                best_fixed_paths << fixed_path
+              end
+            end
+
+            # Create path evaluations by calculating transpositions for each fixed path, and calculating additions in pure path
+            evaluated_paths = Array.new
+            fixed_paths.each do |fixed_path|
+              evaluated = EvaluatedPath.new pass, param_dict
+              event_positions = Array.new(pass.count, -1)
+              event_transpositions = Array.new(pass.count, 0)
+
+              # Set all fixed event positions
+              fixed_path.fixed_event_positions.each_with_index do |position, i|
+                event_positions[position] = fixed_path.indices[i]
+              end
+
+              # Find closest position of unfixed events and calculate transpositions
+              new_positions = Array.new(event_positions)
+              event_positions.each_with_index do |position, i|
+                if position == -1 && position_list[i].count != 0
+                  replacement_index = 0
+                  separator = 0
+                  best_replacement_index = replacement_index
+                  best_separator = separator
+                  found_separator_left = false
+                  while replacement_index < position_list[i].count && separator < event_positions.count
+                    if event_positions[separator] == position_list[i][replacement_index]
+                      replacement_index += 1
+                      next
+                    end
+                    if event_positions[separator] != -1
+                      if separator < i
+                        if event_positions[separator] < position_list[i][replacement_index]
+                          separator += 1
+                        elsif event_positions[separator] > position_list[i][replacement_index]
+                          best_replacement_index = replacement_index
+                          best_separator = separator
+                          found_separator_left = true
+                          replacement_index += 1
+                        end
+                      elsif separator > i
+                        if event_positions[separator] < position_list[i][replacement_index]
+                          separator += 1
+                          if found_separator_left && (separator - i) > (i - best_separator)
+                            break
+                          end
+                        elsif event_positions[separator] > position_list[i][replacement_index]
+                          best_replacement_index = replacement_index
+                          best_separator = separator - 1
+                          break;
+                        end
+                      end
+                    else
+                      separator += 1
+                    end
+                  end
+                  if !found_separator_left
+                    best_replacement_index = replacement_index
+                    best_separator = separator - 1
+                  end
+                  new_positions[i] = position_list[i][best_replacement_index]
+                  event_transpositions[i] = (best_separator - i)
+                end
+              end
+
+              event_positions = new_positions
+              
+            end
+
+          end
 
         end
-
 
       end
 
@@ -201,8 +304,6 @@ module Core
         node
       end
 
-
-
       def branches_to_alternatives branched_routes
         route_variant_combinations = Array (0..branched_routes[0].length-1)
         branched_routes.drop(1).each do |route|
@@ -227,8 +328,6 @@ module Core
         [alternatives]
       end
 
-
-
       def add_alternatives depth, unoccupied_positions, alternative_length, route_variants, variants_occupations, alternatives
         possible_occupations = (unoccupied_positions.combination route_variants[depth].length).to_a
 
@@ -248,7 +347,6 @@ module Core
           end
         end
       end
-
 
 
     end
