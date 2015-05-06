@@ -14,6 +14,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Geddit@evaluate_evaluate_learning_case__Geddit.coverage" NAME="evaluate:evaluate_learning_case: Geddit Coverage Results" MODIFIED="1414398923629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Geddit" />
     <SUITE FILE_PATH="coverage/Geddit@evaluator_parse_learning_case_path___Geddit.coverage" NAME="evaluator:parse_learning_case[path]: Geddit Coverage Results" MODIFIED="1415821150503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Geddit" />
+    <SUITE FILE_PATH="coverage/Geddit@preprocessor_mass_process_usage_events_path___Geddit.coverage" NAME="preprocessor:mass_process_usage_events[path]: Geddit Coverage Results" MODIFIED="1430930185896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Geddit" />
     <SUITE FILE_PATH="coverage/Geddit@evaluator_evaluate_learning_case_interaction_events_path_learning_case_path___Geddit.coverage" NAME="evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit Coverage Results" MODIFIED="1430919001902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Geddit" />
     <SUITE FILE_PATH="coverage/Geddit@evaluate.coverage" NAME="evaluate Coverage Results" MODIFIED="1414397933725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lib/tasks" MODULE_NAME="Geddit" />
     <SUITE FILE_PATH="coverage/Geddit@evaluator_learning_case__Geddit.coverage" NAME="evaluator:learning_case: Geddit Coverage Results" MODIFIED="1414670755868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Geddit" />
@@ -51,8 +52,8 @@
       <file leaf-file-name="preprocessor.rake" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/tasks/preprocessor.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -78,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocessor.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="preprocessor.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/core/preprocessor.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2244">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.28380635" vertical-offset="1836" max-vertical-offset="2703">
+              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -98,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="learning_case.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="learning_case.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/core/evaluator/learning_case.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5017544" vertical-offset="474" max-vertical-offset="3480">
+            <state vertical-scroll-proportion="-9.862069" vertical-offset="474" max-vertical-offset="3480">
               <caret line="275" column="22" selection-start-line="275" selection-start-column="22" selection-end-line="275" selection-end-column="22" />
               <folding>
                 <element signature="e#981#12214#0" expanded="false" />
@@ -185,13 +186,11 @@
         <option value="$PROJECT_DIR$/lib/core/evaluator/learning_case_components/activity_node.rb" />
         <option value="$PROJECT_DIR$/lib/core/shapes/rectangle.rb" />
         <option value="$PROJECT_DIR$/lib/core/shapes/vector2.rb" />
-        <option value="$PROJECT_DIR$/lib/tasks/preprocessor.rake" />
         <option value="$PROJECT_DIR$/lib/core/preprocessor/interface_object.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/evaluator.rake" />
         <option value="$PROJECT_DIR$/lib/core/parser/uxf.rb" />
         <option value="$PROJECT_DIR$/lib/core/preprocessor/parser.rb" />
         <option value="$PROJECT_DIR$/lib/core.rb" />
-        <option value="$PROJECT_DIR$/lib/core/preprocessor.rb" />
         <option value="$PROJECT_DIR$/lib/core/evaluator/event_prescription.rb" />
         <option value="$PROJECT_DIR$/lib/core/evaluator/greedy_fixed_path.rb" />
         <option value="$PROJECT_DIR$/lib/core/evaluator.rb" />
@@ -199,6 +198,8 @@
         <option value="$PROJECT_DIR$/lib/core/evaluator/interaction_event.rb" />
         <option value="$PROJECT_DIR$/lib/core/evaluator/evaluated_path.rb" />
         <option value="$PROJECT_DIR$/lib/core/evaluator/learning_case.rb" />
+        <option value="$PROJECT_DIR$/lib/tasks/preprocessor.rake" />
+        <option value="$PROJECT_DIR$/lib/core/preprocessor.rb" />
       </list>
     </option>
   </component>
@@ -300,24 +301,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -341,50 +324,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="preprocessor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Geddit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="evaluator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -433,31 +372,7 @@
       <recent name="C:\Users\piers_000\RubymineProjects\Geddit\lib\core\evaluator\learning_case_components" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit">
-    <configuration default="false" name="evaluator:parse_learning_case[input_path,output_path]: Geddit" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
-      <module name="Geddit" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs />
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="evaluator:parse_learning_case" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="C:\\Users\\piers_000\\Dropbox\\DP\\sample data\\BerryMechanics.uxf, C:\\Users\\piers_000\\Dropbox\\DP\\sample data\\LearningCaseStrings.csv" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
-      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
-      <RunnerSettings RunnerId="RubyDebugRunner" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Rake.preprocessor:mass_process_usage_events[path]: Geddit">
     <configuration default="false" name="preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_events_log_path,output_path]: Geddit" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="Geddit" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -544,6 +459,28 @@
       <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="preprocessor:process_usage_events" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="C:\\Users\\piers_000\\Dropbox\\DP\\recordings\\GazeData1.csv, C:\\Users\\piers_000\\Dropbox\\DP\\recordings\\GuiChangeLog1.dat, C:\\Users\\piers_000\\Dropbox\\DP\\recordings\\CustomEventLog1.dat, C:\\Users\\piers_000\\Dropbox\\DP\\sample data\\ProcessedEvents1.csv" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="preprocessor:mass_process_usage_events[path]: Geddit" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="Geddit" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="preprocessor:mass_process_usage_events" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="C:\\Users\\piers_000\\Desktop\\main" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
@@ -670,19 +607,19 @@
       <item index="1" class="java.lang.String" itemvalue="Rake.spec: Geddit" />
       <item index="2" class="java.lang.String" itemvalue="Rails.Production: Geddit" />
       <item index="3" class="java.lang.String" itemvalue="Rails.Development: Geddit" />
-      <item index="4" class="java.lang.String" itemvalue="Rake.evaluator:parse_learning_case[input_path,output_path]: Geddit" />
-      <item index="5" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_events_log_path,output_path]: Geddit" />
-      <item index="6" class="java.lang.String" itemvalue="Rake.preprocessor:process_learning_case[input_path,output_path]: Geddit" />
-      <item index="7" class="java.lang.String" itemvalue="Rake.evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit" />
-      <item index="8" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_event_log_path,output_path]: Geddit" />
+      <item index="4" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_events_log_path,output_path]: Geddit" />
+      <item index="5" class="java.lang.String" itemvalue="Rake.preprocessor:process_learning_case[input_path,output_path]: Geddit" />
+      <item index="6" class="java.lang.String" itemvalue="Rake.evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit" />
+      <item index="7" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_event_log_path,output_path]: Geddit" />
+      <item index="8" class="java.lang.String" itemvalue="Rake.preprocessor:mass_process_usage_events[path]: Geddit" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Rake.evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit" />
-        <item index="1" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_event_log_path,output_path]: Geddit" />
-        <item index="2" class="java.lang.String" itemvalue="Rake.preprocessor:process_learning_case[input_path,output_path]: Geddit" />
-        <item index="3" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_events_log_path,output_path]: Geddit" />
-        <item index="4" class="java.lang.String" itemvalue="Rake.evaluator:parse_learning_case[input_path,output_path]: Geddit" />
+        <item index="0" class="java.lang.String" itemvalue="Rake.preprocessor:mass_process_usage_events[path]: Geddit" />
+        <item index="1" class="java.lang.String" itemvalue="Rake.evaluator:evaluate_learning_case[interaction_events_path,learning_case_path]: Geddit" />
+        <item index="2" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_event_log_path,output_path]: Geddit" />
+        <item index="3" class="java.lang.String" itemvalue="Rake.preprocessor:process_learning_case[input_path,output_path]: Geddit" />
+        <item index="4" class="java.lang.String" itemvalue="Rake.preprocessor:process_usage_events[gaze_data_path,gui_change_log_path,custom_events_log_path,output_path]: Geddit" />
       </list>
     </recent_temporary>
   </component>
@@ -699,7 +636,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="118" y="-9" width="1811" height="1098" extended-state="7" />
+    <frame x="118" y="-9" width="1811" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -751,17 +688,10 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="21" />
+      <option name="time" value="22" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/core/evaluator/learning_case.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/core.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="221">
@@ -1031,33 +961,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core/preprocessor/interface_object.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23981191" vertical-offset="0" max-vertical-offset="638">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/core/parser.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
           <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/evaluator.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core/preprocessor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2244">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,26 +984,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/core/evaluator/event_op_counter.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/core/evaluator.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.027777778" vertical-offset="0" max-vertical-offset="612">
           <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/preprocessor.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1117,9 +1008,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs193/file.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="8534" max-vertical-offset="22984">
+          <caret line="514" column="13" selection-start-line="514" selection-start-column="13" selection-end-line="514" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/evaluator.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core/preprocessor/interface_object.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25" vertical-offset="0" max-vertical-offset="612">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/core/evaluator/learning_case.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5017544" vertical-offset="474" max-vertical-offset="3480">
+        <state vertical-scroll-proportion="-9.862069" vertical-offset="474" max-vertical-offset="3480">
           <caret line="275" column="22" selection-start-line="275" selection-start-column="22" selection-end-line="275" selection-end-column="22" />
           <folding>
             <element signature="e#981#12214#0" expanded="false" />
@@ -1140,6 +1055,30 @@
             <element signature="e#11825#11983#0" expanded="false" />
             <element signature="e#11994#12201#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core/evaluator/event_op_counter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/tasks/preprocessor.rake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/core/preprocessor.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28380635" vertical-offset="1836" max-vertical-offset="2703">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

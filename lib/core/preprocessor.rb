@@ -1,4 +1,5 @@
 require 'core/preprocessor/interface_object'
+require 'pathname'
 
 module Core
   module Preprocessor
@@ -51,17 +52,15 @@ module Core
           #Handle mouse inputs
           unless gaze_data_line[27].empty?
             click_point = Vector2.new Integer(gaze_data_line[28]), Integer(gaze_data_line[29])
-            clicked_object = nil
+            clicked_object = false
             interface_objects.each do |name, obj|
               if obj.rect.contains click_point
-                clicked_object = name
-                break
+                output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), name, obj.params ] ).join ','
+                clicked_object = true
               end
             end
-            if clicked_object.nil?
+            unless clicked_object
               output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), 'UNKNOWN', click_point.x.to_s, click_point.y.to_s ] ).join ','
-            else
-              output_file.puts ([ 'INPUT', 'Mouse'+gaze_data_line[27], gaze_sample_date.strftime(time_format), clicked_object.rect, clicked_object.params ] ).join ','
             end
           end
 
@@ -111,6 +110,34 @@ module Core
       gaze_data_doc.close
       output_file.close
 
+    end
+
+    def self.mass_process_usage_events path
+      raw_data_root = path+"\\rawdata"
+      output_root = path+"\\processed"
+
+      participants = Dir.entries(raw_data_root).select {|entry| File.directory?(raw_data_root+"\\"+entry) and !(entry =='.' || entry == '..') }
+
+      participants.each do |participant|
+        puts "Processing participant: " + participant
+        partipant_folder = raw_data_root + "\\" + participant
+
+        games = Dir.entries(partipant_folder).select {|entry| File.directory?(partipant_folder+"\\"+entry) and !(entry =='.' || entry == '..') }
+
+        games.each do |game|
+          puts "Processing game: " + game
+          game_input_folder = partipant_folder + "\\" + game
+          game_output_folder = output_root + "\\" + game
+
+          gaze_data_path = game_input_folder + "\\GazeTrackingData.csv"
+          gui_change_log_path = game_input_folder + "\\GuiChangeLog.dat"
+          custom_event_log_path = game_input_folder + "\\CustomEventLog.dat"
+          output_path = game_output_folder + "\\" + participant + ".csv"
+
+          process_usage_events gaze_data_path, gui_change_log_path, custom_event_log_path, output_path
+        end
+
+      end
     end
 
     private
