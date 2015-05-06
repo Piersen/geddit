@@ -14,8 +14,12 @@ namespace :preprocessor do
 
   desc "Process learning case"
   task :process_learning_case, :input_path, :output_path do |t, args|
-    lc = Core::Evaluator::LearningCase.new args[:input_path]
-    lc.save args[:output_path]
+    Core::Preprocessor.process_learning_case args[:input_path], args[:output_path]
+  end
+
+  desc "Mass process learning cases found in a directory"
+  task :mass_process_learning_cases, :path do |t, args|
+    Core::Preprocessor.mass_process_learning_cases args[:path]
   end
 
 end

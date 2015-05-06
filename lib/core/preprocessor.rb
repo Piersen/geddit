@@ -140,6 +140,28 @@ module Core
       end
     end
 
+    def self.process_learning_case uxf_path, output_path
+      lc = Core::Evaluator::LearningCase.new uxf_path
+      lc.save output_path
+    end
+
+    def self.mass_process_learning_cases path
+      root = path + "\\learningcases\\uxf"
+
+      games = Dir.entries(root).select {|entry| File.directory?(root+"\\"+entry) and !(entry =='.' || entry == '..') }
+
+      games.each do |game|
+        game_folder = root + "\\" + game
+
+        learning_case_files =  Dir.entries(game_folder).select {|entry| !(entry =='.' || entry == '..') }
+
+        learning_case_files.each do |learning_case_file|
+          output_file = path + "\\learningcases\\processed\\" + game + "\\" + learning_case_file.split('.')[0] + ".csv"
+          process_learning_case (game_folder + "\\" + learning_case_file), output_file
+        end
+      end
+    end
+
     private
 
     def self.safe_csv_readline doc
