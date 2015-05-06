@@ -120,13 +120,14 @@ module Core
             end
           end
 
-          # Find evaluated path with the least transpositions and additions for all of the best param dictionaries
+          # Find evaluated paths with the least transpositions and additions for all of the best param dictionaries
           best_param_dicts.each do |param_dict|
             # A structure for storing all positions of events equal to the prescription
             position_list = Array.new(pass.count) { Array.new }
             # A structure for storing fixed paths without transpositions, from which the best one is the chosen
             fixed_paths = [ GreedyFixedPath.new ]
 
+            # Calculate the fixed paths
             pure_list.each_with_index do |event_op_counter, pure_list_index|
               pass.each_with_index do |prescription, prescription_index|
                 if event_op_counter.event.equals prescription, param_dict
@@ -158,13 +159,13 @@ module Core
             end
 
             # Create path evaluations by calculating transpositions for each fixed path, and calculating additions in pure path
-            evaluated_paths = Array.new
-            fixed_paths.each do |fixed_path|
+            best_evaluated_paths_for_dict = Array.new
+            best_fixed_paths.each do |fixed_path|
               evaluated = EvaluatedPath.new pass, param_dict
               event_positions = Array.new(pass.count, -1)
               event_transpositions = Array.new(pass.count, 0)
 
-              # Set all fixed event positions
+              # Set all fixed event positions according to the position they were found in
               fixed_path.fixed_event_positions.each_with_index do |position, i|
                 event_positions[position] = fixed_path.indices[i]
               end
@@ -219,7 +220,38 @@ module Core
               end
 
               event_positions = new_positions
-              
+
+
+              #Calculate additions and generate the finalised evaluated path
+              sorted_position_indices = event_positions.map.with_index.sort.map(&:last)
+              addition_count = 0
+              index_pointer = 0
+              while event_positions[sorted_position_indices[index_pointer]] == -1 && index_pointer < sorted_position_indices.count
+                index_pointer += 1
+              end
+              pure_list.each_with_index do |event_op_counter, position|
+                if index_pointer == sorted_position_indices.count
+                  break
+                end
+                if position == event_positions[sorted_position_indices[index_pointer]]
+                  evaluated.event_op_counters[sorted_position_indices[index_pointer]] = EventOpCounter.new event_op_counter.event, addition_count + event_op_counter.additions, event_transpositions[sorted_position_indices[index_pointer]]
+                  if evaluated.first_event_index == -1
+                    evaluated.first_event_index = sorted_position_indices[index_pointer]
+                  end
+                  addition_count = 0
+                  index_pointer += 1
+                else
+                  addition_count += event_op_counter.additions + 1 # the count of additions for that event + the event itself
+                end
+              end
+
+              # Adjust the evaluated paths array to only contain the paths with best fitness
+              if !best_evaluated_paths_for_dict.empty? && evaluated > best_evaluated_paths_for_dict.first
+                best_evaluated_paths_for_dict = Array.new
+              end
+              if best_evaluated_paths_for_dict.empty? || evaluated == best_evaluated_paths_for_dict.first
+                best_evaluated_paths_for_dict << evaluated
+              end
             end
 
           end

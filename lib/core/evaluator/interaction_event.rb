@@ -22,6 +22,10 @@ module Core
         [@id].concat @other
       end
 
+      def to_s
+        [@type, @id, @other].join(' ')
+      end
+
       def matches event_prescription
         param_dict = Hash.new
 
