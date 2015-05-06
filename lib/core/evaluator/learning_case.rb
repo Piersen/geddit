@@ -30,7 +30,7 @@ module Core
 
       def evaluate events
 
-        bestpass = nil
+        best_evaluated_paths = Array.new
 
         # Evaluate each of the possible passes
         @possible_passes.each_with_index do |pass, pass_index|
@@ -121,6 +121,7 @@ module Core
           end
 
           # Find evaluated paths with the least transpositions and additions for all of the best param dictionaries
+          best_evaluated_paths_for_pass = Array.new
           best_param_dicts.each do |param_dict|
             # A structure for storing all positions of events equal to the prescription
             position_list = Array.new(pass.count) { Array.new }
@@ -218,9 +219,7 @@ module Core
                   event_transpositions[i] = (best_separator - i)
                 end
               end
-
               event_positions = new_positions
-
 
               #Calculate additions and generate the finalised evaluated path
               sorted_position_indices = event_positions.map.with_index.sort.map(&:last)
@@ -254,10 +253,30 @@ module Core
               end
             end
 
+            # Adjust the evaluated paths array to only contain the paths with best fitness
+            if !best_evaluated_paths_for_pass.empty? && best_evaluated_paths_for_dict.first > best_evaluated_paths_for_pass.first
+              best_evaluated_paths_for_pass = Array.new
+            end
+            if best_evaluated_paths_for_pass.empty? || best_evaluated_paths_for_dict.first == best_evaluated_paths_for_pass.first
+              best_evaluated_paths_for_pass =  best_evaluated_paths_for_pass.concat best_evaluated_paths_for_dict
+            end
+          end
+
+          # Adjust the evaluated paths array to only contain the paths with best fitness
+          if !best_evaluated_paths.empty? && best_evaluated_paths_for_pass.first > best_evaluated_paths.first
+            best_evaluated_paths = Array.new
+          end
+          if best_evaluated_paths.empty? || best_evaluated_paths_for_pass.first == best_evaluated_paths.first
+            best_evaluated_paths =  best_evaluated_paths.concat best_evaluated_paths_for_pass
           end
 
         end
 
+        puts "Found #{best_evaluated_paths.count} optimal paths"
+        puts "Example:"
+        puts best_evaluated_paths.first.to_s+"\n"
+
+        best_evaluated_paths
       end
 
       private
