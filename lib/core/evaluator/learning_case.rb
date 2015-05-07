@@ -78,9 +78,11 @@ module Core
             end
           end
 
-
           # Get all combinations of parameter values
-          param_combinations = all_param_dict.first[1].to_a.product *all_param_dict.drop(1).map {|hash| hash[1].to_a}
+          param_combinations = [[]]
+          unless all_param_dict.empty?
+            param_combinations = all_param_dict.first[1].to_a.product *all_param_dict.drop(1).map {|hash| hash[1].to_a}
+          end
 
           # Find param combinations with least amount of deletions
           first_run = true
@@ -225,7 +227,7 @@ module Core
               sorted_position_indices = event_positions.map.with_index.sort.map(&:last)
               addition_count = 0
               index_pointer = 0
-              while event_positions[sorted_position_indices[index_pointer]] == -1 && index_pointer < sorted_position_indices.count
+              while index_pointer < sorted_position_indices.count && event_positions[sorted_position_indices[index_pointer]] == -1
                 index_pointer += 1
               end
               pure_list.each_with_index do |event_op_counter, position|

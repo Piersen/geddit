@@ -113,8 +113,8 @@ module Core
     end
 
     def self.mass_process_usage_events path
-      raw_data_root = path+"\\rawdata"
-      output_root = path+"\\processed"
+      raw_data_root = path+"\\data\\raw"
+      output_root = path+"\\data\\processed"
 
       participants = Dir.entries(raw_data_root).select {|entry| File.directory?(raw_data_root+"\\"+entry) and !(entry =='.' || entry == '..') }
 
