@@ -33,6 +33,12 @@ module Core
           return false
         end
 
+        # If a prescription is for an unspecific input from the mouse, accept it as matching
+        if @type == :INPUT && @id == event_prescription.id && (@id == "MouseLeft" || @id == "MouseRight") && @other.first == "UNKNOWN" && event_prescription.other.count == 0
+          @parameter_dictionary = param_dict
+          return true
+        end
+
         if members.count != event_prescription.members.count
           return false
         end
@@ -62,6 +68,11 @@ module Core
       def equals event_prescription, param_dict
         if @type != event_prescription.type
           return false
+        end
+
+        # If a prescription is for an unspecific input from the mouse, accept it as matching
+        if @type == :INPUT && @id == event_prescription.id && (@id == "MouseLeft" || @id == "MouseRight") && @other.first == "UNKNOWN" && event_prescription.other.count == 0
+          return true
         end
 
         if members.count != event_prescription.members.count
